@@ -19,14 +19,19 @@
         </p>
     </div>
 
-    <form action="">
+    <form action="/searches" method="POST">
+
         <input type="text" name="searchQuery" placeholder="Enter a title or auther">
-        <input type="radio" id="title" name="title" >
+
+
+        <input type="radio" id="title" name="searchBy" value="title">
         <label for="title">title</label>
-        <input type="radio" id="author" name="author">
+
+
+        <input type="radio" id="author" name="searchBy" value="author">
         <label for="author">Author</label>
 
-        <button type="submit" id="button">Search the Google API</button>
+        <button type="submit" id="search" name="search">Search the Google API</button>
     </form>
 </body>
 </html>

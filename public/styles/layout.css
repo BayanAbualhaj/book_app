@@ -1,0 +1,65 @@
+h1,h3 {
+    padding: 1%;
+}
+
+#second-header-div {
+    text-align: center;
+}
+
+#form,#container {
+    text-align: center;
+    margin: auto;
+    margin-top: 10%;
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3,33%);
+    row-gap: 20%;
+}
+
+#text-field input {
+    width: 99%;
+    height: 90%;
+    font-size: larger;
+}
+
+button {
+    padding: 2%;
+    font-size: 110%;
+}
+
+.radio label, .radio input {
+    margin: 2%;
+}
+
+.radio label {
+    font-size: larger;
+}
+
+#text-field,.radio,button {
+    border-radius: 3px;
+}
+
+/*///////////////////// SHOW.EJS//////////////////  */
+
+#img {
+    margin: 4%;
+}
+
+#description,#title-and-author {
+    margin: 2%;
+}
+
+#container {
+    height: 80%;
+    grid-template-rows: 40% 20% 40%;
+    row-gap: 0;
+    background-color: wheat ;
+    opacity: 0.3;
+}
+
+ul {
+    list-style: disc;
+}
+

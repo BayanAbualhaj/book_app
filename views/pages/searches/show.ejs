@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-    
+
+
     <div>
         <h1>Best Books!</h1>
         <nav>
             <img src="" alt="">
         </nav>
-        </div>
-        <div>
+    </div>
+    <div>
+        <p>
+            Search Results
+        </p>
+    </div>
+
+
+    <% arrayOfItems.forEach((value)=> { %>
+        <div id="container">
+            <img src="<%= value.thumbnail%>" alt="">
+
+            <h3>
+                <%= value.title%>
+            </h3>
+            <ul>
+                <% value.authors.forEach((item)=> {%>
+                    <li>
+                        <%= item%>
+                    </li>
+                    <%});%>
+            </ul>
             <p>
-                Search Results 
+                <%= value.description%>
             </p>
         </div>
-
-
-        <% arrayOfItems.foreach((value) => { %>
-            <div id="container">
-                <img src="<%= value.thumbnail%>" alt="">
-
-                <h3><%= value.title%></h3>
-                <ul>
-                    <%= value.authors.foreach((item) => {%>
-                        <li> <%= item%> </li>
-                    <%})%>
-                </ul>
-                <p><%= value.description%></p>
-            </div>
-        <% })%>
+        <% });%>
 </body>
+
 </html>

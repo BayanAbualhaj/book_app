@@ -22,15 +22,13 @@
         </div>
 
 
-        <% arrayOfItems.foreach((value) => { %>
+        <% arrayOfItems.forEach((value) => { %>
             <div id="container">
                 <img src="<%= value.thumbnail%>" alt="">
 
                 <h3><%= value.title%></h3>
                 <ul>
-                    <%= value.authors.foreach((item) => {%>
-                        <li> <%= item%> </li>
-                    <%})%>
+                    <li><%= value.authors%></li>
                 </ul>
                 <p><%= value.description%></p>
             </div>

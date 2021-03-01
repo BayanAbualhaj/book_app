@@ -25,6 +25,7 @@
     </div>
 
     <% arrayOfItems.forEach((value)=> { %>
+
         <div class="container">
             <div class="image">
                 <img src="<%= value.thumbnail%>" alt="">
@@ -46,6 +47,16 @@
                 <p>
                     <%= value.description%>
                 </p>
+            </div>
+            <div>
+                <form action="/books" method="POST">
+                    <input type="hidden" value="<%= value.title%>">
+                    <input type="hidden" value="<%= value.authors%>">
+                    <input type="hidden" value="<%= value.description%>">
+                    <input type="hidden" value="<%= value.type%>">
+                    <button type="submit">Add To Favorite</button>
+                </form>
+
             </div>
         </div>
         <% });%>

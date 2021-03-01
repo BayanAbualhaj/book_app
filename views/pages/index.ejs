@@ -7,8 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        This an online library 
-    </h1>
+    <div id="header-div">
+        <h1>Best Books!</h1>
+        <nav>
+            <img src="" alt="">
+        </nav>
+    </div>
+    <div id="second-header-div">
+        <h3>
+            <% favBooks.length%>   Saved Books
+        </h3>
+    </div>
+
+    <% favBooks.forEach((value)=> { %>
+        <div class="container">
+            <div class="image">
+                <img src="<%= value.thumbnail%>" alt="">
+            </div>
+            <div class="title-and-author">
+                <h3>
+                    <%= value.title%>
+                </h3>
+                <ul>
+
+                    <li>
+                        <%= value.authors%>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="description">
+               <button type="submit" ><a href=""></a>View Details</button>
+            </div>
+        </div>
+        <% });%>
 </body>
 </html>

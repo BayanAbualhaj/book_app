@@ -27,7 +27,6 @@
         </h3>
     </div>
 
-
     <% arrayOfItems.forEach((value)=> { %>
         <div class="container">
             <div class="image">
@@ -38,11 +37,13 @@
                     <%= value.title%>
                 </h3>
                 <ul>
+
                     <% value.authors.forEach((item)=> {%>
                         <li>
                             <%= item%>
                         </li>
                         <%});%>
+
                 </ul>
             </div>
 

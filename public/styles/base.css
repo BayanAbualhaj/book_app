@@ -1,0 +1,19 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    background-image: url("https://wallpapercave.com/wp/wp2036897.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 200%;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+li {
+    font-size: 120%;
+}

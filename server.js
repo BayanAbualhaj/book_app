@@ -10,7 +10,7 @@ const app = express();
 require('dotenv').config();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static(__dirname + '/public'));
 const PORT = process.env.PORT;
 
 
@@ -30,9 +30,7 @@ function handleHome(req,res){
 
 
 function handleNew(req,res){
-    res.render('pages/searches/new');
-    
-    
+    res.render('pages/searches/new');    
 }
 
 function handleSearches(req,res){
@@ -64,7 +62,6 @@ function handleSearches(req,res){
     }).catch(error=>{
         res.status(500).send('there is an error    ' ,error);
     });
-
 }
 
 function Book(imgURL,title,authors,description){
@@ -72,8 +69,6 @@ function Book(imgURL,title,authors,description){
     this.title=title || 'there is no title';
     this.authors= authors || 'No authors are founded';
     this.description= description || 'No description was found';
-
-
 }
 
 function handleError(req,res){
@@ -83,4 +78,4 @@ function handleError(req,res){
 
 app.listen(PORT,()=>{
     console.log('server is running on port', PORT);
-})
+});

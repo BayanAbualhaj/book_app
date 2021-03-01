@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+views/pages/searches/test.html
+views/pages/searches/test2.html

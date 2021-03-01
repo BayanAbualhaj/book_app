@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../public/styles/reset.css">
+    <link rel="stylesheet" href="../../../public/styles/base.css">
+    <link rel="stylesheet" href="../../../public/styles/layout.css">
+    <link rel="stylesheet" href="../../../public/styles/modules.css">
     <title>Document</title>
 </head>
+
 <body>
-    
-    
-    <div>
+
+
+    <div id="header-div">
         <h1>Best Books!</h1>
         <nav>
             <img src="" alt="">
         </nav>
-        </div>
-        <div>
-            <p>
-                Search Results !
-            </p>
-        </div>
+    </div>
+    <div id="second-header-div">
+        <h3>
+            Search Results
+        </h3>
+    </div>
 
-
-        <% arrayOfItems.forEach((value) => { %>
-            <div id="container">
+    <% arrayOfItems.forEach((value)=> { %>
+        <div class="container">
+            <div class="image">
                 <img src="<%= value.thumbnail%>" alt="">
-
-                <h3><%= value.title%></h3>
-                <ul>
-                    <li><%= value.authors%></li>
-                </ul>
-                <p><%= value.description%></p>
             </div>
-        <% })%>
+            <div class="title-and-author">
+                <h3>
+                    <%= value.title%>
+                </h3>
+                <ul>
+
+                    <% value.authors.forEach((item)=> {%>
+                        <li>
+                            <%= item%>
+                        </li>
+                        <%});%>
+
+                </ul>
+            </div>
+
+            <div class="description">
+                <p>
+                    <%= value.description%>
+                </p>
+            </div>
+        </div>
+        <% });%>
 </body>
+
 </html>

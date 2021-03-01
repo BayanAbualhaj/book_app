@@ -6,7 +6,7 @@ h1,h3 {
     text-align: center;
 }
 
-#form,#container {
+#form,.container {
     text-align: center;
     margin: auto;
     margin-top: 10%;
@@ -43,15 +43,15 @@ button {
 
 /*///////////////////// SHOW.EJS//////////////////  */
 
-#img {
+.img {
     margin: 4%;
 }
 
-#description,#title-and-author {
+.description,.title-and-author {
     margin: 2%;
 }
 
-#container {
+.container {
     height: 80%;
     grid-template-rows: 40% 20% 40%;
     row-gap: 0;

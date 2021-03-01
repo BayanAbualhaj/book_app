@@ -1,7 +1,8 @@
 #header-div,#second-header-div {
     background-color: wheat;
-    opacity: 0.4;
+    opacity: 0.8;
     color: darkred;
+    text-align: center;
 }
 
 .radio {

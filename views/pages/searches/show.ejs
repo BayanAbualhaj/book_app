@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/styles/base.css">
-    <title>Document</title>
-</head>
-
 <body>
-
-
-    <div id="header-div">
-        <h1>Best Books!</h1>
-        <nav>
-            <img src="" alt="">
-        </nav>
-    </div>
+    <%- include('../../layout/head')  %>
+    <%- include('../../layout/header')  %>
     <div id="second-header-div">
         <h3>
             Search Results
@@ -25,6 +11,7 @@
     </div>
 
     <% arrayOfItems.forEach((value)=> { %>
+
         <div class="container">
             <div class="image">
                 <img src="<%= value.thumbnail%>" alt="">
@@ -47,8 +34,29 @@
                     <%= value.description%>
                 </p>
             </div>
+
+            <form action="/books" method="POST">
+                <input type="hidden" value="<%= value.title%>" name="title">
+                <input type="hidden" value="<%= value.authors%>" name="authors">
+                <input type="hidden" value="<%= value.description%>" name="description">
+                <input type="hidden" value="<%= value.type%>" name="isbn">
+                <input type="hidden" value="<%= value.thumbnail%>" name="image">
+                <button type="submit">Add To Favorite</button>
+            </form>
+
         </div>
         <% });%>
+
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myLinks");
+              if (x.style.display === "block") {
+                x.style.display = "none";
+              } else {
+                x.style.display = "block";
+              }
+            }
+        </script>
 </body>
 
 </html>

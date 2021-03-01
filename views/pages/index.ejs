@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
 <body>
-    <h1>
-        This an online library 
-    </h1>
+    <%- include('../layout/head')  %>
+    <%- include('../layout/header')  %>
+
+    <div id="second-header-div">
+        <h3>
+            <%= favBooks.length%>   Saved Books
+        </h3>
+    </div>
+
+    <% favBooks.forEach((value)=> { %>
+        <div class="container">
+            <div class="image">
+                <img src="<%= value.image_url%>" alt="">
+            </div>
+            <div class="title-and-author">
+                <h3>
+                    <%= value.title%>
+                </h3>
+                <ul>
+
+                    <li>
+                        <%= value.author%>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="description">
+               <button type="submit" ><a href="/books/<%=value.id%>">View Details</a></button>
+            </div>
+        </div>
+    <% });%>
+        <script>
+            function myFunction() {
+              var x = document.getElementById("myLinks");
+              if (x.style.display === "block") {
+                x.style.display = "none";
+              } else {
+                x.style.display = "block";
+              }
+            }
+            </script>
 </body>
+
 </html>

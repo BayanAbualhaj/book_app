@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+    <%- include('../layout/head')  %>
+    <%- include('../layout/header')  %>
+    <div class="container">
+        <div class="image">
+            <img src="<%= oneBook.image_url%>" alt="">
+        </div>
+        <div class="title-and-author">
+            <h3>
+                <%= oneBook.title%>
+            </h3>
+            <ul>
+
+                <li>
+                    <%= oneBook.author%>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="description">
+            <p>
+                <%= oneBook.description%>
+                <br>
+                <br>
+                <%= oneBook.isbn%>
+            </p>
+
+            
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+    </script>
+</body>
+
+</html>

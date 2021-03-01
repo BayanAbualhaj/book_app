@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <link rel="stylesheet" href="/public/styles/base.css">
-    <title>Document</title>
-</head>
 
 <body>
-    <div id="header-div">
-        <h1>Best Books!</h1>
-        <nav>
-            <img src="" alt="">
-        </nav>
-    </div>
+    <%- include('../../layout/head')  %>
+    <%- include('../../layout/header')  %>
+
     <div id="second-header-div">
         <h3>
             Search by Title or Author
@@ -34,6 +27,16 @@
             <button type="submit" id="search" name="search">Search the Google API</button>
         </form>
     </div>
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+    </script>
 </body>
 
 </html>

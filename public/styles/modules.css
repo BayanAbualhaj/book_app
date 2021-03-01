@@ -1,7 +1,7 @@
 #header-div,#second-header-div {
-    background-color: wheat;
+    background-color: #f5deb3;
     opacity: 0.8;
-    color: darkred;
+    color: rgb(139, 0, 0);
     text-align: center;
 }
 
@@ -11,12 +11,58 @@
     text-align: left;
     color: darkred;
 }
-
+/* 
 button {
     background: wheat;
     color: darkred;
-}
+} */
 
 #text-field:hover,.radio:hover,button:hover {
     cursor: pointer;
 }
+
+
+.mobile-container {
+    max-width: 480px;
+    margin: auto;
+    background-color:#d4d2d180;
+    height: 500px;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color:#41110496;
+    position: relative;
+  }
+  
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  .topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  .topnav a.icon {
+    background: #dac0ba96;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav a:hover {
+  
+    opacity: 0.8;
+  }
+  
+.active {
+    background-color:#41110469;
+   
+  }

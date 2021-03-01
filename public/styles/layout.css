@@ -27,7 +27,20 @@ h1,h3 {
 button {
     padding: 2%;
     font-size: 110%;
+    background-color: rgb(39, 3, 3);
+    color: white;
 }
+
+button:hover{
+    opacity: 0.95;
+}
+
+a:link ,a:visited{
+   text-decoration: none; 
+   color:white; 
+}
+
+
 
 .radio label, .radio input {
     margin: 2%;
@@ -43,7 +56,7 @@ button {
 
 /*///////////////////// SHOW.EJS//////////////////  */
 
-.img {
+img {
     margin: 4%;
 }
 
@@ -59,7 +72,22 @@ button {
     opacity: 1;
 }
 
-ul {
-    list-style: disc;
+/* ul {
+    list-style: ;
+} */
+
+
+
+.error{
+    height: 25%;
+    width: 25%;
+    text-align: center;
+    padding: 10%;
+    background-color: rgba(255, 255, 255, 0.397);
+    border-radius: 15%;
+    margin:auto;
+    display: block;
+    
+    
 }
 

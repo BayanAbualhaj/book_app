@@ -11,11 +11,7 @@
     text-align: left;
     color: darkred;
 }
-/* 
-button {
-    background: wheat;
-    color: darkred;
-} */
+
 
 #text-field:hover,.radio:hover,button:hover {
     cursor: pointer;
@@ -65,4 +61,65 @@ button {
 .active {
     background-color:#41110469;
    
+  }
+
+
+
+  .open-button , .deleteBtn {
+    background-color:#280505;
+    color: white;
+    margin-left: 40%;
+    margin-top: 2%;
+    height: 10%;
+    width: 20%;
+  }
+
+
+  .form-popup {
+    display: none;
+    position: absolute;
+    overflow:hidden;
+    bottom: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    margin-left: 40%;
+  }
+  
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+ 
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+
+  .form-container .btn {
+    background-color:#280505;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
   }

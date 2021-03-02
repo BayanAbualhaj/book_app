@@ -32,8 +32,23 @@
 
             
         </div>
+
+
     </div>
 
+    <div class="button-div">
+        <button class="open-button" onclick="openForm()">Update details</button>
+
+
+        <div class="form-popup" id="myForm">
+            <%- include('../layout/form')  %>
+        </div>
+
+
+        <form action="/delete/<%= oneBook.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="deleteBtn">Delete Book!</button>
+        </form>
+    </div>
     <script>
         function myFunction() {
           var x = document.getElementById("myLinks");
@@ -42,6 +57,14 @@
           } else {
             x.style.display = "block";
           }
+        }
+
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+             document.getElementById("myForm").style.display = "none";
         }
     </script>
 </body>

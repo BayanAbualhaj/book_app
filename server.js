@@ -3,6 +3,7 @@ const express = require('express');
 const pg = require('pg')
 const cors = require('cors');
 const superAgent = require('superagent');
+const override= require('method-override');
 const app = express();
 
 require('dotenv').config();
@@ -11,6 +12,7 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use('/public', express.static('./public'));
+app.use(override('_method'));
 app.set('view engine', 'ejs');
 
 const PORT = process.env.PORT;
@@ -25,6 +27,8 @@ app.get('/searches/new', handleNew);
 app.post('/searches', handleSearches);
 app.post('/books', handleBooks);
 app.get('/books/:id', handleOneBook);
+app.delete('/delete/:id', handleDelete);
+app.put('/update/:id', handleUpdate);
 app.get('*', handleError);
 
 const googleAPI = 'https://www.googleapis.com/books/v1/volumes';
@@ -71,7 +75,6 @@ function handleSearches(req, res) {
 
             booksArray.push(booksObject);
         });
-        // console.log(booksArray);
         res.render('pages/searches/show', { arrayOfItems: booksArray });
 
     }).catch(error => {
@@ -92,7 +95,6 @@ function handleBooks(req, res) {
         let id = data.rows[0].id;
         res.redirect(`/books/${id}`);
     }).catch(error=>{
-        console.log(error)
         res.status(500).render('pages/error');
     });
 
@@ -101,14 +103,12 @@ function handleBooks(req, res) {
 //=====================Handle One Book===================
 
 function handleOneBook(req,res){
-    // console.log('gfkufh',req.params);
+
     let id= req.params.id;
     let selectQuery ='SELECT * FROM books WHERE id = $1';
     let safeValues = [id];
-    console.log(id);
 
     client.query(selectQuery,safeValues).then(data=>{
-        // console.log(data);
         res.render('pages/details',{ oneBook:data.rows[0]});
     }).catch(error=>{
         res.status(500).render('pages/error');
@@ -117,12 +117,44 @@ function handleOneBook(req,res){
 
 }
 
+//=========================== Handle Delete=================
+
+function handleDelete(req,res){
+    let id = req.params.id;
+    let deleteQueri = 'DELETE FROM books WHERE id =$1';
+    let safeValue= [id];
+
+    client.query(deleteQueri,safeValue).then(()=>{
+        res.redirect('/');
+    }).catch(error=>{
+        res.status(500).render('pages/error');
+    });
+}
+
+
+//========================Handle Update =====================
+
+function handleUpdate(req, res){
+    let id = req.params.id;
+    let values= req.body;
+
+    let updatedQuery= 'UPDATE books SET author= $1, title= $2, isbn= $3, image_url=$4, description=$5 WHERE id= $6';
+
+    let safeValue= [values.author,values.title,values.isbn,values.image,values.description,id];
+
+    client.query(updatedQuery,safeValue).then(()=>{
+        res.redirect('/');
+    }).catch(error=>{
+        res.status(500).render('pages/error');
+    });
+}
+
 //====================Book Constructor=======================
 
 function Book(imgURL, title, isbn, authors, description) {
     this.thumbnail = imgURL || 'https://i.imgur.com/J5LVHEL.jpg';
     this.title = title || 'there is no title';
-    this.type = `ISBN: ${isbn}` || 'not found';
+    this.type = `ISBN: ${isbn}` || 'ISBN :not found';
     this.authors = authors || 'No authors are founded';
     this.description = description || 'No description was found';
 }
@@ -132,6 +164,7 @@ function Book(imgURL, title, isbn, authors, description) {
 function handleError(req, res) {
     res.render('pages/error');
 }
+
 
 
 //============Connect to DB & Listener=======================

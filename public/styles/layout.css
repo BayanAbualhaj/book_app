@@ -65,17 +65,12 @@ img {
 }
 
 .container {
-    height: 80%;
+    height: 100%;
     grid-template-rows: 40% 20% 40%;
     row-gap: 0;
     background-color: wheat ;
     opacity: 1;
 }
-
-/* ul {
-    list-style: ;
-} */
-
 
 
 .error{

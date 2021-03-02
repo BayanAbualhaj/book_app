@@ -1,0 +1,17 @@
+<form action="/update/<%= oneBook.id%>?_method=PUT" method="POST" class="form-container">
+
+    <input type="text" value="<%= oneBook.title%>" name="title" placeholder="Book Title">
+
+    <input type="text" value="<%= oneBook.author%>" name="author" placeholder="Book Author">
+
+    <input type="text" value="<%= oneBook.type%>" name="isbn" placeholder="write an ISBN">
+
+    <input type="text" value="<%= oneBook.image_url%>" name="image" placeholder="Fill an image URL">
+
+    <input type="text" value="<%= oneBook.description%>" name="description" placeholder="Add description">
+    
+    
+
+    <button type="submit" class="btn"> Update Book </button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+</form>
